@@ -1,14 +1,20 @@
 <template>
   <div id="app">
-    <UserProfile/>
+    <UserProfile :user_profile="users_profiles[0]"/>
   </div>
 </template>
 
 <script>
 import UserProfile from './components/UserProfile.vue';
+import profiles from './data/profiles.json';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      users_profiles: profiles,
+    };
+  },
   components: {
     UserProfile,
   },
@@ -27,7 +33,8 @@ export default {
 #app {
   margin-top: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
   min-height: 1000px;
 }
 </style>

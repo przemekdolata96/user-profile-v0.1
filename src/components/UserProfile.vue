@@ -26,10 +26,12 @@
 <script>
 import Profile from '../components/Profile/Profile.vue';
 import CommentsList from '../components/Comments/CommentsList.vue';
-import profile from '../data/profile.json';
 
 export default {
   name: 'UserProfile',
+  props: {
+    user_profile: Object,
+  },
   components: {
     Profile,
     CommentsList,
@@ -50,7 +52,7 @@ export default {
     };
   },
   mounted() {
-    this.profile = profile;
+    this.profile = this.user_profile;
     this.sortComments();
   },
   methods: {
@@ -101,6 +103,7 @@ export default {
     box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
     position: relative;
     box-sizing: border-box;
+    margin-bottom: 100px;
   }
 
   .profile-top {
